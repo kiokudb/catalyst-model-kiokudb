@@ -1,3 +1,6 @@
+0.12  09 Aug 2010
+  - Make the prefix used to look up users configurable.
+
 0.11
   - Passing random args to the config is now deprecated, use 'model_args' and
     give it a hash (dsn is still supported)
