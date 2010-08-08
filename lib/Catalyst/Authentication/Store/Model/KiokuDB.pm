@@ -27,6 +27,12 @@ has model_name => (
     required => 1,
 );
 
+has user_prefix => (
+    is      => 'ro',
+    isa     => 'Str',
+    default => 'user:',
+);
+
 sub get_model {
     my ( $self, $c ) = @_;
 
@@ -80,7 +86,7 @@ sub find_user_by_id {
         unless defined $id;
 
     # KiokuX::User convention... FIXME also support ->search?
-    $model->lookup("user:$id");
+    $model->lookup($self->user_prefix . $id);
 }
 
 __PACKAGE__->meta->make_immutable;
